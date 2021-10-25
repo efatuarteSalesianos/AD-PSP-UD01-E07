@@ -25,7 +25,7 @@ public class AddedTo {
     private Playlist playlist;
 
     private String dateTime;
-    private String order;
+    private String orden;
 
     /* MÉTODOS HELPERS */
 
@@ -47,6 +47,16 @@ public class AddedTo {
     public void removeFromPlaylist(Playlist p) {
         p.getAdded().remove(this);
         playlist = null;
+    }
+
+    public void addSongPlaylist(Song s, Playlist p) {
+        addToSong(s);
+        addToPlaylist(p);
+    }
+
+    public void removeSongPlaylist(Song s, Playlist p) {
+        removeFromSong(s);
+        removeFromPlaylist(p);
     }
 
 }

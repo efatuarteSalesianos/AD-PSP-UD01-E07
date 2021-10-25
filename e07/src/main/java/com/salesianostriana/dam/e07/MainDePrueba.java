@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.e07;
 
 import com.salesianostriana.dam.e07.Model.Artist;
+import com.salesianostriana.dam.e07.Model.Playlist;
 import com.salesianostriana.dam.e07.Model.Song;
 import com.salesianostriana.dam.e07.Services.AddedToService;
 import com.salesianostriana.dam.e07.Services.ArtistService;
@@ -24,35 +25,41 @@ public class MainDePrueba {
     @PostConstruct
     public void initData() {
 
-        List<Artist> artists = List.of(
-                Artist.builder()
+        Artist a1 = Artist.builder()
                         .name("The Weeknd")
-                        .build(),
-                Artist.builder()
+                        .build();
+        Artist a2 = Artist.builder()
                         .name("Artic Monkeys")
-                        .build()
-        );
-        artistService.saveAll(artists);
+                        .build();
 
-        List<Song> songs = List.of(
-                Song.builder()
+        artistService.save(a1);
+        artistService.save(a2);
+
+        Song s1 = Song.builder()
                         .title("Blinding Lights")
                         .album("After hours")
                         .year("2020")
-                        .build(),
-                Song.builder()
+                        .build();
+        Song s2 = Song.builder()
                         .title("Do I Wanna Know?")
-                        .album("After hours")
-                        .year("2020")
-                        .build(),
-                Song.builder()
-                        .title("Blinding Lights")
-                        .album("After hours")
-                        .year("2020")
-                        .build()
-        );
-        songService.saveAll(songs);
+                        .album("AM")
+                        .year("2019")
+                        .build();
 
+        s1.setArtist(a1);
+        songService.save(s1);
+        s2.setArtist(a2);
+        songService.save(s2);
+
+        songService.findAll()
+                .forEach( s -> System.out.printf("Titulo: %s, Album: %s,  Anyo: %s, Artista: %s\n", s.getTitle(), s.getAlbum(), s.getYear(), s.getArtist().getName()));
+
+        Playlist p1 = Playlist.builder()
+                .name("Chilling")
+                .description("Musica de relax para estudiar PSP")
+                .build();
+
+        Song songP1 = addedToService.addSongToPlaylist(s1, p1);
 
     }
 

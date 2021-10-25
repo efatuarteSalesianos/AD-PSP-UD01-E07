@@ -18,7 +18,4 @@ public class Artist implements Serializable {
     private Long id;
 
     private String name;
-
-    @OneToMany(mappedBy = "artist")
-    private List<Song> songs = new ArrayList<>();
 }

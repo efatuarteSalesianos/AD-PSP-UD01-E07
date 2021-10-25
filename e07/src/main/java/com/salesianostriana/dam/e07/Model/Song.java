@@ -24,16 +24,4 @@ public class Song {
     @Builder.Default
     @OneToMany(mappedBy = "song")
     private List<AddedTo> added = new ArrayList<>();
-
-    /* MÉTODOS HELPERS */
-
-    public void addArtist(Artist a) {
-        this.artist = a;
-        a.getSongs().add(this);
-    }
-
-    public void deleteArtist(Artist a) {
-        a.getSongs().remove(this);
-        this.artist = null;
-    }
 }
