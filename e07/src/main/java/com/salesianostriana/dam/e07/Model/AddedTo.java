@@ -3,6 +3,7 @@ package com.salesianostriana.dam.e07.Model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor @AllArgsConstructor
@@ -24,8 +25,8 @@ public class AddedTo {
     @JoinColumn(name="playlist_id")
     private Playlist playlist;
 
-    private String dateTime;
-    private String orden;
+    private LocalDateTime dateTime;
+    private Integer orden;
 
     /* MÉTODOS HELPERS */
 

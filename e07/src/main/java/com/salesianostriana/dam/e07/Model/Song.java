@@ -3,6 +3,7 @@ package com.salesianostriana.dam.e07.Model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 @Builder
-public class Song {
+public class Song implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

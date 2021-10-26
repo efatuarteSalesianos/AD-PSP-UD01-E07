@@ -58,3 +58,7 @@ alter table added_to add constraint FKl8srshxx8gl1x48e6qy5e22qy foreign key (pla
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ADDED_TO" no encontrada
 Table "ADDED_TO" not found; SQL statement:
 alter table added_to add constraint FK8bkiut1d6qcnl489nivvtp58p foreign key (song_id) references song [42102-200]
+2021-10-26 19:56:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "PLAYLIST_ID[*]"; se esperaba "PREPARE"
+Syntax error in SQL statement "PLAYLIST_ID[*]"; expected "PREPARE"; SQL statement:
+PLAYLIST_ID [42001-200]
