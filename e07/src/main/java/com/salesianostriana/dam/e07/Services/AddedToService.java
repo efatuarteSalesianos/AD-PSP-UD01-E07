@@ -20,7 +20,7 @@ public class AddedToService extends BaseService<AddedTo, SongToPlaylistPK, Added
 
         AddedTo a = AddedTo.builder()
                 .dateTime(LocalDateTime.now())
-                .orden(this.findAll().size()+1)
+                .orden(p.getAdded().size()+1)
                 .build();
         a.addSongPlaylist(s, p);
         save(a);

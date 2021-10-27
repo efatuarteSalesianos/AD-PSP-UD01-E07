@@ -58,11 +58,16 @@ public class MainDePrueba {
                 .name("Chilling")
                 .description("Musica de relax para estudiar PSP")
                 .build();
+        Playlist p2 = Playlist.builder()
+                .name("PSP")
+                .description("Musica para escuchar en PSP")
+                .build();
 
         playlistService.save(p1);
 
         addedToService.addSongToPlaylist(s1, p1, songService, playlistService);
         addedToService.addSongToPlaylist(s2, p1, songService, playlistService);
+        addedToService.addSongToPlaylist(s1, p2, songService, playlistService);
 
     }
 
