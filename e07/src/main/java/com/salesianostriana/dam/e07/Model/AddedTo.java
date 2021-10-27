@@ -13,10 +13,10 @@ public class AddedTo {
 
     @Builder.Default
     @EmbeddedId
-    private SongToPlaylistPK id = new SongToPlaylistPK();
+    private SongToPlaylistPK id = new SongToPlaylistPK(); // Se instancia directamente para que cuando creemos una instancia se cree una instancia vacía de la otra clase
 
     @ManyToOne
-    @MapsId("song_id")
+    @MapsId("song_id") // Esto hace que no se cree una nueva columna de join, si no que relaciona ambas
     @JoinColumn(name="song_id")
     private Song song;
 
